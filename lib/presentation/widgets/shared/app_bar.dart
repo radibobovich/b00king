@@ -1,9 +1,8 @@
-import 'package:booking/extensions.dart';
-import 'package:booking/fonts.dart';
+import 'package:booking/presentation/fonts.dart';
 import 'package:flutter/material.dart';
 
-class HotelAppBar extends StatelessWidget implements PreferredSizeWidget {
-  const HotelAppBar({
+class SharedAppBar extends StatelessWidget implements PreferredSizeWidget {
+  const SharedAppBar({
     super.key,
     required this.title,
   });
@@ -18,11 +17,17 @@ class HotelAppBar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: false,
       leading: Navigator.of(context).canPop()
           ? IconButton(
-              icon: const Icon(Icons.arrow_back_ios),
+              icon: const Icon(Icons.arrow_back_ios_new_rounded),
+              color: Colors.black,
+              iconSize: 18,
               onPressed: () => Navigator.of(context).pop(),
             )
           : const SizedBox.shrink(),
-      title: Text(title, style: AppFonts.appBarTitle),
+      title: Text(
+        title,
+        style: AppFonts.appBarTitle,
+        overflow: TextOverflow.ellipsis,
+      ),
     );
   }
 
