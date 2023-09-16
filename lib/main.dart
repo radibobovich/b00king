@@ -4,7 +4,8 @@ import 'package:booking/data/rest_client.dart';
 import 'package:booking/domain/models/repositories/hotel_repository.dart';
 import 'package:booking/presentation/cubit/hotel_cubit.dart';
 import 'package:booking/presentation/screens/hotel_screen.dart';
-import 'package:booking/theme.dart';
+import 'package:booking/router.dart';
+import 'package:booking/presentation/theme.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -36,9 +37,10 @@ class MyApp extends StatelessWidget {
               Dio(),
             ),
           ),
-        ),
+        )..getHotel(),
         child: const HotelScreen(),
       ),
+      onGenerateRoute: (settings) => getRoute(settings),
     );
   }
 }
