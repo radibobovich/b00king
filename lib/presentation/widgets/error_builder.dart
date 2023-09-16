@@ -1,5 +1,5 @@
 import 'package:booking/exceptions.dart';
-import 'package:booking/fonts.dart';
+import 'package:booking/presentation/fonts.dart';
 import 'package:flutter/material.dart';
 
 class ErrorPlaceholder extends StatelessWidget {
