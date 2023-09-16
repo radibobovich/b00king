@@ -2,6 +2,7 @@ import 'package:booking/domain/models/hotel.dart';
 import 'package:booking/extensions.dart';
 import 'package:booking/presentation/fonts.dart';
 import 'package:booking/presentation/widgets/shared/image_carousel.dart';
+import 'package:booking/presentation/widgets/shared/main_hotel_info.dart';
 import 'package:booking/utils/price_formatter.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +35,21 @@ class TopBlock extends StatelessWidget {
               ImageCarousel(imageUrls: hotel.imageUrls),
               Align(
                 alignment: AlignmentDirectional.topStart,
-                child: MainInfo(hotel: hotel),
+                child: Column(
+                  children: [
+                    MainHotelInfo(
+                        rating: hotel.rating,
+                        ratingName: hotel.ratingName,
+                        address: hotel.address),
+                    SizedBox.fromSize(
+                      size: const Size.fromHeight(17),
+                    ),
+                    PriceRow(
+                      minimalPrice: hotel.minimalPrice,
+                      priceForIt: hotel.priceForIt,
+                    )
+                  ],
+                ),
               ),
               const SizedBox(
                 height: 18,
@@ -43,50 +58,6 @@ class TopBlock extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class MainInfo extends StatelessWidget {
-  const MainInfo({
-    super.key,
-    required this.hotel,
-  });
-
-  final Hotel hotel;
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Rating(
-          rating: hotel.rating,
-          ratingName: hotel.ratingName,
-        ),
-        const Text(
-          // TODO: replace with actual data
-          'Steigenberger Makadi',
-          style: AppFonts.hotelName,
-        ),
-        SizedBox.fromSize(
-          size: const Size.fromHeight(7),
-        ),
-        GestureDetector(
-          onTap: () {},
-          child: Text(
-            hotel.address,
-            style: AppFonts.hotelAddress,
-          ),
-        ),
-        SizedBox.fromSize(
-          size: const Size.fromHeight(17),
-        ),
-        PriceRow(
-          minimalPrice: hotel.minimalPrice,
-          priceForIt: hotel.priceForIt,
-        )
-      ],
     );
   }
 }
@@ -134,7 +105,7 @@ class Rating extends StatelessWidget {
         ? context.color.bestRatingBackgroundColor
         : context.color.anyRatingBackgroundColor;
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 7, horizontal: 10),
+      padding: const EdgeInsets.symmetric(vertical: 6.5, horizontal: 10),
       margin: const EdgeInsets.fromLTRB(0, 16, 0, 9),
       decoration: BoxDecoration(
           color: backgroundColor, borderRadius: BorderRadius.circular(5)),
