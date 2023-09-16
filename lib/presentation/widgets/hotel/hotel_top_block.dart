@@ -1,7 +1,8 @@
 import 'package:booking/domain/models/hotel.dart';
 import 'package:booking/extensions.dart';
-import 'package:booking/fonts.dart';
+import 'package:booking/presentation/fonts.dart';
 import 'package:booking/presentation/widgets/shared/image_carousel.dart';
+import 'package:booking/utils/price_formatter.dart';
 import 'package:flutter/material.dart';
 
 class TopBlock extends StatelessWidget {
@@ -102,6 +103,7 @@ class PriceRow extends StatelessWidget {
       children: [
         /// TODO: replace with actual data
         const Text(
+          // formatPrice(minimalPrice),
           'от 134 673 ₽',
           style: AppFonts.price,
         ),
@@ -109,7 +111,7 @@ class PriceRow extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.fromLTRB(5, 10, 0, 0),
           child: Text(
-            'за тур с перелётом',
+            priceForIt.toLowerCase(),
             style: AppFonts.priceForItLabel,
           ),
         )
