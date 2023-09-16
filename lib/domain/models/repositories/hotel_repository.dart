@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:booking/data/rest_client.dart';
 import 'package:booking/domain/models/hotel.dart';
 import 'package:booking/exceptions.dart';
@@ -26,6 +28,9 @@ class HotelRemoteRepository implements HotelRepository {
           } else if (res?.statusCode == 500) {
             throw ServerException('Server error');
           } else {
+            if (obj.error is SocketException) {
+              throw NoInternetException('No internet connection');
+            }
             throw Exception('Unknown Dio error');
           }
         default:

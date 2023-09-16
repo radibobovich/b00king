@@ -9,3 +9,9 @@ class ServerException implements Exception {
 
   ServerException(this.message);
 }
+
+class NoInternetException implements Exception {
+  final String message;
+
+  NoInternetException(this.message);
+}
