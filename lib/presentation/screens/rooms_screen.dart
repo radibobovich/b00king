@@ -116,26 +116,29 @@ class MoreInfoButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: context.color.anyRatingBackgroundColor,
-        borderRadius: BorderRadius.circular(5),
-      ),
-      padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 10),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Text(
-            'Подробнее о номере ',
-            style:
-                AppFonts.ratingLabel(color: context.color.anyRatingTextColor),
-          ),
-          Icon(
-            Icons.arrow_forward_ios,
-            size: 18,
-            color: context.color.anyRatingTextColor,
-          )
-        ],
+    return GestureDetector(
+      onTap: () {},
+      child: Container(
+        decoration: BoxDecoration(
+          color: context.color.anyRatingBackgroundColor,
+          borderRadius: BorderRadius.circular(5),
+        ),
+        padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 10),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              'Подробнее о номере ',
+              style:
+                  AppFonts.ratingLabel(color: context.color.anyRatingTextColor),
+            ),
+            Icon(
+              Icons.arrow_forward_ios,
+              size: 18,
+              color: context.color.anyRatingTextColor,
+            )
+          ],
+        ),
       ),
     );
   }
