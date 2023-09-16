@@ -51,16 +51,15 @@ class _ImageCarouselState extends State<ImageCarousel> {
                   ((_currentPosition - e.key).toDouble() /
                           widget.imageUrls.length)
                       .abs());
-              return Container(
-                width: 7,
-                height: 7,
-                margin:
+              return Padding(
+                padding:
                     const EdgeInsets.symmetric(vertical: 5.0, horizontal: 2.5),
-                decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    color: e.key == _currentPosition
-                        ? Colors.black
-                        : Color.lerp(Colors.black, Colors.white, lerpFactor)),
+                child: CircleAvatar(
+                  radius: 3.5,
+                  backgroundColor: e.key == _currentPosition
+                      ? Colors.black
+                      : Color.lerp(Colors.black, Colors.white, lerpFactor),
+                ),
               );
             }).toList(),
           ),
