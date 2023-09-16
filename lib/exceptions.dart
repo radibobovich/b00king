@@ -15,3 +15,9 @@ class NoInternetException implements Exception {
 
   NoInternetException(this.message);
 }
+
+class BadImageException implements Exception {
+  final String message;
+
+  BadImageException(this.message);
+}

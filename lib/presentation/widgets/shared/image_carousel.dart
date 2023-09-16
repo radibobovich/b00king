@@ -1,13 +1,13 @@
 import 'dart:math';
 
 import 'package:booking/extensions.dart';
+import 'package:booking/utils/image_preloader.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
 class ImageCarousel extends StatefulWidget {
   const ImageCarousel({super.key, required this.imageUrls});
   final List<String> imageUrls;
-  // TODO: pre-load images
   @override
   State<ImageCarousel> createState() => _ImageCarouselState();
 }
@@ -15,6 +15,59 @@ class ImageCarousel extends StatefulWidget {
 class _ImageCarouselState extends State<ImageCarousel> {
   int _currentPosition = 0;
   final CarouselController _controller = CarouselController();
+  final List<Image> _images = [];
+
+  @override
+  void initState() {
+    super.initState();
+    populateImagesList();
+  }
+
+  @override
+  void didChangeDependencies() {
+    /// Pre-download all images in the gallery
+    precacheGallery(widget.imageUrls, context);
+    super.didChangeDependencies();
+  }
+
+  ///
+  void populateImagesList() {
+    for (var url in widget.imageUrls) {
+      final Image image;
+      final key = UniqueKey();
+      image = Image.network(
+        key: key,
+        url,
+        fit: BoxFit.cover,
+        loadingBuilder: (context, child, loadingProgress) {
+          if (loadingProgress == null) {
+            return child;
+          }
+          return Center(
+            child: CircularProgressIndicator(
+              value: loadingProgress.expectedTotalBytes != null
+                  ? loadingProgress.cumulativeBytesLoaded /
+                      loadingProgress.expectedTotalBytes!
+                  : null,
+            ),
+          );
+        },
+
+        /// Removes bad images seamlessly during scroll
+        errorBuilder: (context, error, stackTrace) {
+          WidgetsBinding.instance.addPostFrameCallback((_) {
+            setState(() {
+              _images.removeWhere((image) => image.key == key);
+            });
+          });
+
+          return const Icon(Icons.image_not_supported);
+        },
+      );
+      _images.add(image);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(alignment: Alignment.bottomCenter, children: [
@@ -23,9 +76,7 @@ class _ImageCarouselState extends State<ImageCarousel> {
         decoration: BoxDecoration(borderRadius: BorderRadius.circular(15)),
         child: CarouselSlider(
             carouselController: _controller,
-            items: widget.imageUrls.map((image) {
-              return Image.network(image, fit: BoxFit.cover);
-            }).toList(),
+            items: _images,
             options: CarouselOptions(
               viewportFraction: 1,
               height: 272,
@@ -46,10 +97,9 @@ class _ImageCarouselState extends State<ImageCarousel> {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
-            children: widget.imageUrls.asMap().entries.map((e) {
+            children: _images.asMap().entries.map((e) {
               final double lerpFactor = sqrt(
-                  ((_currentPosition - e.key).toDouble() /
-                          widget.imageUrls.length)
+                  ((_currentPosition - e.key).toDouble() / _images.length)
                       .abs());
               return Padding(
                 padding:
