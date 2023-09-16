@@ -34,6 +34,7 @@ class RoomRemoteRepository implements RoomRepository {
           throw Exception('Unknown error');
       }
     });
+    // TODO: probably sort by id
     return roomsApiModel.rooms.map((room) => Room.fromApi(room)).toList();
   }
 
