@@ -1,6 +1,7 @@
 import 'package:booking/domain/models/hotel.dart';
 import 'package:booking/extensions.dart';
-import 'package:booking/fonts.dart';
+import 'package:booking/presentation/fonts.dart';
+import 'package:booking/presentation/widgets/shared/peculiarities.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -23,12 +24,15 @@ class BottomBlock extends StatelessWidget {
           ),
         ),
         // TODO: replace with actual data
-        const Peculiarities(peculiarities: [
-          "3-я линия",
-          "Платный Wi-Fi в фойе",
-          "30 км до аэропорта",
-          "1 км до пляжа"
-        ]),
+        const Padding(
+          padding: EdgeInsets.fromLTRB(17, 12, 0, 0),
+          child: Peculiarities(peculiarities: [
+            "3-я линия",
+            "Платный Wi-Fi в фойе",
+            "30 км до аэропорта",
+            "1 км до пляжа"
+          ]),
+        ),
         Padding(
           padding: const EdgeInsets.fromLTRB(17, 8, 9, 0),
           child: Text(
@@ -38,36 +42,6 @@ class BottomBlock extends StatelessWidget {
         ),
         const DetailsButtons(),
       ]),
-    );
-  }
-}
-
-class Peculiarities extends StatelessWidget {
-  const Peculiarities({super.key, required this.peculiarities});
-  final List<String> peculiarities;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(17, 12, 0, 0),
-      child: Wrap(
-        children: peculiarities.map((e) {
-          return Container(
-            padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 10),
-            margin: const EdgeInsets.symmetric(vertical: 4.5, horizontal: 4),
-            decoration: BoxDecoration(
-              color: context.color.itemBackgroundColor,
-              borderRadius: BorderRadius.circular(5),
-            ),
-
-            /// Peculiarity
-            child: Text(
-              e,
-              style: AppFonts.peculiarity,
-            ),
-          );
-        }).toList(),
-      ),
     );
   }
 }
