@@ -80,4 +80,17 @@ class AppFonts {
     fontSize: 16,
     fontFamily: 'SFProDisplay400',
   );
+
+  static TextStyle bookingInfoName = TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    fontFamily: 'SFProDisplay400',
+    color: AppTheme.appColors.secondaryTextColor,
+  );
+
+  static TextStyle bookingInfoValue = const TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeight.w400,
+    fontFamily: 'SFProDisplay400',
+  );
 }
