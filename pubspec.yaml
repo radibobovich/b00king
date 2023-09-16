@@ -33,10 +33,15 @@ flutter:
 
   assets:
     - assets/icons/
-fonts:
-  - family: SF Pro Display
-    fonts:
-      - asset: fonts/SFPRODISPLAYREGULAR.otf
-      - asset: fonts/SFPRODISPLAYMEDIUM.otf
-        weight: 500
-
+  fonts:
+    - family: SFProDisplay
+      fonts:
+        - asset: assets/fonts/SFPRODISPLAYREGULAR.otf
+          weight: 300
+        - asset: assets/fonts/SFPRODISPLAYMEDIUM.otf
+          weight: 400
+        - asset: assets/fonts/SFPRODISPLAYSEMIBOLD.otf
+          weight: 500
+        - asset: assets/fonts/SFPRODISPLAYBOLD.otf
+          weight: 600
+  generate: true

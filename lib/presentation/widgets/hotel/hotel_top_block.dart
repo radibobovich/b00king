@@ -1,5 +1,6 @@
 import 'package:booking/domain/models/hotel.dart';
 import 'package:booking/extensions.dart';
+import 'package:booking/fonts.dart';
 import 'package:booking/presentation/widgets/shared/image_carousel.dart';
 import 'package:flutter/material.dart';
 
@@ -18,8 +19,8 @@ class TopBlock extends StatelessWidget {
       decoration: BoxDecoration(
           color: context.color.blockBackgroundColor,
           borderRadius: const BorderRadius.only(
-              bottomLeft: Radius.circular(15),
-              bottomRight: Radius.circular(15))),
+              bottomLeft: Radius.circular(12),
+              bottomRight: Radius.circular(12))),
       child: Align(
         alignment: AlignmentDirectional.center,
 
@@ -65,7 +66,7 @@ class MainInfo extends StatelessWidget {
         const Text(
           // TODO: replace with actual data
           'Steigenberger Makadi',
-          style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
+          style: AppFonts.hotelName,
         ),
         SizedBox.fromSize(
           size: const Size.fromHeight(7),
@@ -74,8 +75,7 @@ class MainInfo extends StatelessWidget {
           onTap: () {},
           child: Text(
             hotel.address,
-            style: TextStyle(
-                fontWeight: FontWeight.w500, color: context.color.addressColor),
+            style: AppFonts.hotelAddress,
           ),
         ),
         SizedBox.fromSize(
@@ -103,18 +103,14 @@ class PriceRow extends StatelessWidget {
         /// TODO: replace with actual data
         const Text(
           'от 134 673 ₽',
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.w600),
+          style: AppFonts.price,
         ),
         // TODO: replace with actual data
         Padding(
           padding: const EdgeInsets.fromLTRB(5, 10, 0, 0),
           child: Text(
             'за тур с перелётом',
-            style: TextStyle(
-              fontSize: 16,
-              fontWeight: FontWeight.w400,
-              color: context.color.secondaryTextColor,
-            ),
+            style: AppFonts.priceForItLabel,
           ),
         )
       ],
@@ -129,10 +125,10 @@ class Rating extends StatelessWidget {
   // TODO: different color for different ratings
   @override
   Widget build(BuildContext context) {
-    final textColor = false
+    final textColor = rating == 5
         ? context.color.bestRatingTextColor
         : context.color.anyRatingTextColor;
-    final backgroundColor = false
+    final backgroundColor = rating == 5
         ? context.color.bestRatingBackgroundColor
         : context.color.anyRatingBackgroundColor;
     return Container(
@@ -150,8 +146,7 @@ class Rating extends StatelessWidget {
           ),
           Text(
             '${rating.toString()} $ratingName',
-            style: TextStyle(
-                color: textColor, fontSize: 16, fontWeight: FontWeight.w500),
+            style: AppFonts.ratingLabel(color: textColor),
           ),
         ],
       ),

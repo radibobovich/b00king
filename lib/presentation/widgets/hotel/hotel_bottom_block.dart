@@ -1,5 +1,6 @@
 import 'package:booking/domain/models/hotel.dart';
 import 'package:booking/extensions.dart';
+import 'package:booking/fonts.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -12,13 +13,13 @@ class BottomBlock extends StatelessWidget {
       width: double.infinity,
       decoration: BoxDecoration(
           color: context.color.blockBackgroundColor,
-          borderRadius: BorderRadius.circular(15)),
+          borderRadius: BorderRadius.circular(12)),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
         const Padding(
           padding: EdgeInsets.fromLTRB(17, 20, 0, 0),
           child: Text(
             'Об отеле',
-            style: TextStyle(fontSize: 22, fontWeight: FontWeight.w500),
+            style: AppFonts.aboutHotelHeader,
           ),
         ),
         // TODO: replace with actual data
@@ -32,8 +33,7 @@ class BottomBlock extends StatelessWidget {
           padding: const EdgeInsets.fromLTRB(17, 8, 9, 0),
           child: Text(
             hotel.aboutTheHotel.description,
-            style: const TextStyle(
-                fontSize: 16, fontWeight: FontWeight.w400, wordSpacing: -0.3),
+            style: AppFonts.hotelDescription,
           ),
         ),
         const DetailsButtons(),
@@ -59,12 +59,11 @@ class Peculiarities extends StatelessWidget {
               color: context.color.itemBackgroundColor,
               borderRadius: BorderRadius.circular(5),
             ),
+
+            /// Peculiarity
             child: Text(
               e,
-              style: TextStyle(
-                  fontSize: 16,
-                  fontWeight: FontWeight.w500,
-                  color: context.color.secondaryTextColor),
+              style: AppFonts.peculiarity,
             ),
           );
         }).toList(),
@@ -138,16 +137,13 @@ class DetailItem extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(name,
-                    style: const TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.w500,
-                    )),
+                Text(
+                  name,
+                  style: AppFonts.detailName,
+                ),
                 Text(
                   value,
-                  style: TextStyle(
-                      fontWeight: FontWeight.w500,
-                      color: context.color.secondaryTextColor),
+                  style: AppFonts.detailValue,
                 )
               ],
             ),
