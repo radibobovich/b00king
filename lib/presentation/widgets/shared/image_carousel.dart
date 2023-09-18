@@ -30,7 +30,6 @@ class _ImageCarouselState extends State<ImageCarousel> {
     super.didChangeDependencies();
   }
 
-  ///
   void populateImagesList() {
     for (var url in widget.imageUrls) {
       final Image image;
