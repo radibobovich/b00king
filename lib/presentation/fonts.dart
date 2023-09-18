@@ -6,7 +6,6 @@ import 'package:flutter/material.dart';
 /// [fontFamily] property is used instead of [fontWeight] because of the
 /// workaround in pubspec.yaml
 class AppFonts {
-  // TODO: fix hardcoded colors
   static TextStyle appBarTitle = TextStyle(
     color: AppTheme.appColors.textColor,
     fontSize: 18,
