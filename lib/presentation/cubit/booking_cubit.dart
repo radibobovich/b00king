@@ -1,6 +1,7 @@
 import 'package:booking/domain/models/booking.dart';
 import 'package:booking/domain/models/booking_form.dart';
 import 'package:booking/domain/models/repositories/booking_repository.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class BookingCubit extends Cubit<BookingState> {
@@ -13,6 +14,7 @@ class BookingCubit extends Cubit<BookingState> {
   final BookingRepository _bookingRepository;
   final BookingFormManager bookingFormManager;
   late Booking _booking;
+
   void getBooking() async {
     try {
       _booking = await _bookingRepository.getBooking();
@@ -29,8 +31,22 @@ class BookingCubit extends Cubit<BookingState> {
         booking: _booking, touristsInfo: bookingFormManager.touristsInfo));
   }
 
-  bool validateTouristsEmptyFields() {
+  bool validateForms(List<GlobalKey<FormState>> keys) {
+    return _validateTouristsEmptyFields() && _validateAll(keys);
+  }
+
+  bool _validateTouristsEmptyFields() {
     return bookingFormManager.validateTouristsEmptyFields();
+  }
+
+  bool _validateAll(List<GlobalKey<FormState>> keys) {
+    bool isValid = true;
+    for (var key in keys) {
+      if (!key.currentState!.validate()) {
+        isValid = false;
+      }
+    }
+    return isValid;
   }
 }
 
