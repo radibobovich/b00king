@@ -15,6 +15,7 @@ class CustomField extends StatelessWidget {
     this.inputFormatters,
     this.onChanged,
     this.fillColor,
+    this.enableErrorLabel = false,
   });
 
   final TextEditingController? controller;
@@ -26,6 +27,7 @@ class CustomField extends StatelessWidget {
   final String? hintText;
   final Function? onChanged;
   final Color? fillColor;
+  final bool enableErrorLabel;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -49,6 +51,7 @@ class CustomField extends StatelessWidget {
           border: InputBorder.none,
           contentPadding: EdgeInsets.zero,
           isDense: true,
+          errorStyle: enableErrorLabel ? null : const TextStyle(height: 0),
         ),
         onChanged: (value) {
           onChanged?.call(value);

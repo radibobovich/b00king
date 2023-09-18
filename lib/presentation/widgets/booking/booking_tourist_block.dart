@@ -111,13 +111,14 @@ class _TouristBlockState extends State<TouristBlock> {
                           setState(() {
                             nameFillColor = context.color.formErrorColor;
                           });
+                          return '';
                         } else {
                           setState(() {
                             nameFillColor =
                                 context.theme.scaffoldBackgroundColor;
                           });
+                          return null;
                         }
-                        return null;
                       },
                       textCapitalization: TextCapitalization.sentences,
                     ),
@@ -132,13 +133,14 @@ class _TouristBlockState extends State<TouristBlock> {
                           setState(() {
                             lastNameFillColor = context.color.formErrorColor;
                           });
+                          return '';
                         } else {
                           setState(() {
                             lastNameFillColor =
                                 context.theme.scaffoldBackgroundColor;
                           });
+                          return null;
                         }
-                        return null;
                       },
                     ),
                     const SizedBox(height: 7),
@@ -157,13 +159,14 @@ class _TouristBlockState extends State<TouristBlock> {
                           setState(() {
                             dateOfBirthFillColor = context.color.formErrorColor;
                           });
+                          return '';
                         } else {
                           setState(() {
                             dateOfBirthFillColor =
                                 context.theme.scaffoldBackgroundColor;
                           });
+                          return null;
                         }
-                        return null;
                       },
                     ),
                     const SizedBox(height: 7),
@@ -177,13 +180,14 @@ class _TouristBlockState extends State<TouristBlock> {
                           setState(() {
                             citizenshipFillColor = context.color.formErrorColor;
                           });
+                          return '';
                         } else {
                           setState(() {
                             citizenshipFillColor =
                                 context.theme.scaffoldBackgroundColor;
                           });
+                          return null;
                         }
-                        return null;
                       },
                     ),
                     const SizedBox(height: 7),
@@ -202,13 +206,14 @@ class _TouristBlockState extends State<TouristBlock> {
                           setState(() {
                             passportFillColor = context.color.formErrorColor;
                           });
+                          return '';
                         } else {
                           setState(() {
                             passportFillColor =
                                 context.theme.scaffoldBackgroundColor;
                           });
+                          return null;
                         }
-                        return null;
                       },
                     ),
                     const SizedBox(height: 7),
@@ -229,13 +234,14 @@ class _TouristBlockState extends State<TouristBlock> {
                             passportExpirationDateFillColor =
                                 context.color.formErrorColor;
                           });
+                          return '';
                         } else {
                           setState(() {
                             passportExpirationDateFillColor =
                                 context.theme.scaffoldBackgroundColor;
                           });
+                          return null;
                         }
-                        return null;
                       },
                     ),
                   ],

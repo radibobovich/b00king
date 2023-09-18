@@ -70,6 +70,7 @@ class _PhoneEntryState extends State<PhoneEntry> {
               keyboardType: TextInputType.phone,
               controller: widget.controller,
               textCapitalization: TextCapitalization.none,
+              enableErrorLabel: true,
               inputFormatters: [phoneMask],
               validator: (value) =>
                   value!.length < 18 ? 'Заполните поле.' : null,

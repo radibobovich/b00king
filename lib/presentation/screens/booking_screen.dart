@@ -140,7 +140,7 @@ class BookingBottomSheet extends StatelessWidget {
                 ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                   duration: const Duration(seconds: 2),
                   content: Text(
-                    'Заполнены не все поля',
+                    'Пожалуйста, проверьте корректность введенных данных',
                     style: AppFonts.errorSnackbarLabel,
                   ),
                   backgroundColor: context.theme.scaffoldBackgroundColor,

@@ -85,12 +85,13 @@ class _EmailEntryState extends State<EmailEntry> {
                 setState(() {
                   emailFillColor = context.color.formErrorColor;
                 });
+                return '';
               } else {
                 setState(() {
                   emailFillColor = context.theme.scaffoldBackgroundColor;
                 });
+                return null;
               }
-              return null;
             }),
       ),
     );
