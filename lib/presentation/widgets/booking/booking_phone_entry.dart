@@ -72,8 +72,9 @@ class _PhoneEntryState extends State<PhoneEntry> {
               textCapitalization: TextCapitalization.none,
               enableErrorLabel: true,
               inputFormatters: [phoneMask],
-              validator: (value) =>
-                  value!.length < 18 ? 'Заполните поле.' : null,
+              validator: (value) => value!.length < 18 || value.contains('*')
+                  ? 'Заполните поле.'
+                  : null,
               onChanged: (String value) {
                 _updateDisplayedPhoneNumber(value);
               },
