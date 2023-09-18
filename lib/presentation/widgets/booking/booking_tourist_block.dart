@@ -54,45 +54,12 @@ class _TouristBlockState extends State<TouristBlock> {
           children: [
             Padding(
               padding: const EdgeInsets.only(bottom: 7),
-              child: Row(
-                children: [
-                  Text('${touristDeclension(widget.id)} турист',
-                      style: AppFonts.touristLabel),
-                  const Spacer(),
-                  Center(
-                    child: Material(
-                      child: InkWell(
-                        onTap: () {
-                          setState(() {
-                            expanded = !expanded;
-                          });
-                        },
-                        child: Container(
-                          height: 32,
-                          width: 32,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(6),
-                            color: context.color.anyRatingBackgroundColor,
-                          ),
-                          child: IconButton(
-                              padding: EdgeInsets.zero,
-                              iconSize: 32,
-                              onPressed: () {
-                                setState(() {
-                                  expanded = !expanded;
-                                });
-                              },
-                              icon: Icon(
-                                expanded
-                                    ? Icons.keyboard_arrow_up
-                                    : Icons.keyboard_arrow_down,
-                                color: context.color.anyRatingTextColor,
-                              )),
-                        ),
-                      ),
-                    ),
-                  )
-                ],
+              child: TouristHeader(
+                id: widget.id,
+                expanded: expanded,
+                onTap: () => setState(() {
+                  expanded = !expanded;
+                }),
               ),
             ),
             Visibility(
@@ -251,6 +218,51 @@ class _TouristBlockState extends State<TouristBlock> {
           ],
         ),
       ),
+    );
+  }
+}
+
+class TouristHeader extends StatelessWidget {
+  const TouristHeader(
+      {super.key,
+      required this.id,
+      required this.expanded,
+      required this.onTap});
+  final int id;
+  final bool expanded;
+  final Function onTap;
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Text('${touristDeclension(id)} турист', style: AppFonts.touristLabel),
+        const Spacer(),
+        Center(
+          child: Material(
+            child: InkWell(
+              onTap: () => onTap(),
+              child: Container(
+                height: 32,
+                width: 32,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(6),
+                  color: context.color.anyRatingBackgroundColor,
+                ),
+                child: IconButton(
+                    padding: EdgeInsets.zero,
+                    iconSize: 32,
+                    onPressed: () => onTap(),
+                    icon: Icon(
+                      expanded
+                          ? Icons.keyboard_arrow_up
+                          : Icons.keyboard_arrow_down,
+                      color: context.color.anyRatingTextColor,
+                    )),
+              ),
+            ),
+          ),
+        )
+      ],
     );
   }
 }
