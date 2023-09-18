@@ -15,4 +15,14 @@ void main() {
     expect(nightsDeclension(9), 'ночей');
     expect(nightsDeclension(10), 'ночей');
   });
+
+  test('Tourists number declension', () {
+    expect(touristDeclension(1), 'Первый');
+    expect(touristDeclension(10), 'Десятый');
+    expect(touristDeclension(11), 'Одиннадцатый');
+    expect(touristDeclension(22), 'Двадцать второй');
+    expect(touristDeclension(30), 'Тридцатый');
+    expect(touristDeclension(95), 'Девяносто пятый');
+    expect(touristDeclension(100), '100');
+  });
 }
