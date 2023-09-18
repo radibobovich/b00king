@@ -134,6 +134,7 @@ class BookingBottomSheet extends StatelessWidget {
             onPressed: () {
               if (context.read<BookingCubit>().validateForms(
                   [phoneFormKey, emailFormKey, touristsFormKey])) {
+                FocusScope.of(context).unfocus();
                 Navigator.of(context).pushNamed('/paid');
               } else {
                 // snack bar
