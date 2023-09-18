@@ -11,7 +11,7 @@ class AddTouristBlock extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      padding: const EdgeInsets.fromLTRB(17, 16, 17, 17),
+      padding: const EdgeInsets.fromLTRB(17, 16, 17, 14),
       margin: const EdgeInsets.symmetric(vertical: 9),
       decoration: BoxDecoration(
           color: context.color.blockBackgroundColor,
