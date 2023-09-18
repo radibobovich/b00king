@@ -1,10 +1,12 @@
 import 'package:booking/data/rest_client.dart';
+import 'package:booking/domain/models/booking_form.dart';
 import 'package:booking/domain/models/repositories/booking_repository.dart';
 import 'package:booking/domain/models/repositories/room_repository.dart';
 import 'package:booking/presentation/cubit/booking_cubit.dart';
 import 'package:booking/presentation/cubit/rooms_cubit.dart';
 import 'package:booking/presentation/screens/booking_screen.dart';
 import 'package:booking/presentation/screens/hotel_screen.dart';
+import 'package:booking/presentation/screens/paid_screen.dart';
 import 'package:booking/presentation/screens/rooms_screen.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -33,9 +35,18 @@ Route<dynamic> getRoute(RouteSettings settings) {
                       Dio(),
                     ),
                   ),
+                  bookingFormManager: BookingFormManager()
+                    ..addTouristInfo(TouristInfo()),
                 )..getBooking(),
-                child: const BookingScreen(),
+                child: BookingScreen(
+                  touristsFormKey: GlobalKey<FormState>(),
+                  phoneFormKey: GlobalKey<FormState>(),
+                  emailFormKey: GlobalKey<FormState>(),
+                  scrollController: ScrollController(),
+                ),
               ));
+    case '/paid':
+      return MaterialPageRoute(builder: (_) => const PaidScreen());
     default:
       return MaterialPageRoute(builder: (_) => const HotelScreen());
   }
