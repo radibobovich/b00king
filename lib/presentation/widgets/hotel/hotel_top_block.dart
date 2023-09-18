@@ -40,6 +40,7 @@ class TopBlock extends StatelessWidget {
                     MainHotelInfo(
                         rating: hotel.rating,
                         ratingName: hotel.ratingName,
+                        hotelName: hotel.name,
                         address: hotel.address),
                     SizedBox.fromSize(
                       size: const Size.fromHeight(17),
@@ -72,13 +73,10 @@ class PriceRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        /// TODO: replace with actual data
-        const Text(
-          // formatPrice(minimalPrice),
-          'от 134 673 ₽',
+        Text(
+          '${formatPrice(minimalPrice)} ₽',
           style: AppFonts.price,
         ),
-        // TODO: replace with actual data
         Padding(
           padding: const EdgeInsets.fromLTRB(5, 10, 0, 0),
           child: Text(
@@ -95,7 +93,6 @@ class Rating extends StatelessWidget {
   const Rating({super.key, required this.rating, required this.ratingName});
   final int rating;
   final String ratingName;
-  // TODO: different color for different ratings
   @override
   Widget build(BuildContext context) {
     final textColor = rating == 5

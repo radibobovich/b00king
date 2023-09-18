@@ -7,11 +7,13 @@ class MainHotelInfo extends StatelessWidget {
     super.key,
     required this.rating,
     required this.ratingName,
+    required this.hotelName,
     required this.address,
   });
 
   final int rating;
   final String ratingName;
+  final String hotelName;
   final String address;
 
   @override
@@ -23,9 +25,8 @@ class MainHotelInfo extends StatelessWidget {
           rating: rating,
           ratingName: ratingName,
         ),
-        const Text(
-          // TODO: replace with actual data
-          'Steigenberger Makadi',
+        Text(
+          hotelName,
           style: AppFonts.hotelName,
         ),
         SizedBox.fromSize(

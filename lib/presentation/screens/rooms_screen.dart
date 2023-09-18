@@ -53,17 +53,14 @@ class RoomBlock extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ImageCarousel(imageUrls: room.imageUrls),
-            // TODO: replace with actual data
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 8),
               child: Text(
-                'Стандартный с видом на бассейн или сад',
+                room.name,
                 style: AppFonts.roomName,
               ),
             ),
-
-            // TODO: replace with actual data
-            const Peculiarities(peculiarities: ['Все включено', 'Кондиционер']),
+            Peculiarities(peculiarities: room.peculiarities),
             const Padding(
               padding: EdgeInsets.symmetric(vertical: 2),
               child: MoreInfoButton(),

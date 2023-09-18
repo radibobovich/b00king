@@ -75,6 +75,7 @@ class BookingBody extends StatelessWidget {
                   child: MainHotelInfo(
                       rating: booking.horating,
                       ratingName: booking.ratingName,
+                      hotelName: booking.hotelName,
                       address: booking.hotelAddress),
                 ),
                 BookingInfoTable(booking: booking),

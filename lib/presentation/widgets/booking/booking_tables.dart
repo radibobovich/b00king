@@ -21,17 +21,14 @@ class BookingInfoTable extends StatelessWidget {
             1: FractionColumnWidth(0.6)
           },
           children: [
-            // TODO: replace with actual data
-            getTableRow('Вылет из', 'Санкт-Петербург'),
+            getTableRow('Вылет из', booking.departure),
             getTableRow('Страна, город', booking.arrivalCountry),
             getTableRow(
                 'Даты', '${booking.tourDateStart} – ${booking.tourDateStop}'),
             getTableRow('Кол-во ночей',
                 '${booking.numberOfNights} ${nightsDeclension(booking.numberOfNights)}'),
-            // TODO: replace with actual data
-            getTableRow('Отель', 'SteigenBerger Makadi'),
-            // TODO: replace with actual data
-            getTableRow('Номер', 'Стандартный с видом на бассейн или сад'),
+            getTableRow('Отель', booking.hotelName),
+            getTableRow('Номер', booking.room),
             getTableRow('Питание', booking.nutrition, isLast: true),
           ],
         ));

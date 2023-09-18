@@ -23,15 +23,10 @@ class BottomBlock extends StatelessWidget {
             style: AppFonts.aboutHotelHeader,
           ),
         ),
-        // TODO: replace with actual data
-        const Padding(
-          padding: EdgeInsets.fromLTRB(17, 12, 0, 0),
-          child: Peculiarities(peculiarities: [
-            "3-я линия",
-            "Платный Wi-Fi в фойе",
-            "30 км до аэропорта",
-            "1 км до пляжа"
-          ]),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(17, 12, 0, 0),
+          child:
+              Peculiarities(peculiarities: hotel.aboutTheHotel.peculiarities),
         ),
         Padding(
           padding: const EdgeInsets.fromLTRB(17, 8, 9, 0),
