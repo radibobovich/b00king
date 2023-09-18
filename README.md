@@ -18,4 +18,4 @@
  - [json_annotation](https://pub.dev/packages/json_annotation) (для `build_runner`)
  - [json_serializable](https://pub.dev/packages/json_serializable) (для генерации кода Retrofit)
 
-
+Макет Figma - [здесь](https://raw.githubusercontent.com/radibobovich/b00king/master/figma_design.png)
