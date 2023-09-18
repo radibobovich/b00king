@@ -32,7 +32,7 @@ class BookingCubit extends Cubit<BookingState> {
   }
 
   bool validateForms(List<GlobalKey<FormState>> keys) {
-    return _validateTouristsEmptyFields() && _validateAll(keys);
+    return _validateAll(keys) && _validateTouristsEmptyFields();
   }
 
   bool _validateTouristsEmptyFields() {
