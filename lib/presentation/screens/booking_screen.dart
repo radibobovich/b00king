@@ -63,6 +63,7 @@ class BookingBody extends StatelessWidget {
           final booking = state.booking;
           final tourists = state.touristsInfo;
           return SingleChildScrollView(
+            physics: const BouncingScrollPhysics(),
             controller: scrollController,
             child: Column(
               children: [

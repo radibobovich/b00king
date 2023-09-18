@@ -23,6 +23,7 @@ class RoomsScreen extends StatelessWidget {
             if (state is RoomsLoaded) {
               final rooms = state.rooms;
               return ListView.builder(
+                physics: const BouncingScrollPhysics(),
                 itemCount: rooms.length,
                 itemBuilder: (context, index) => RoomBlock(room: rooms[index]),
               );

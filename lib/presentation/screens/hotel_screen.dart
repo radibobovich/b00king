@@ -35,6 +35,7 @@ class HotelScreen extends StatelessWidget {
             if (state is HotelLoaded) {
               final hotel = state.hotel;
               return SingleChildScrollView(
+                physics: const BouncingScrollPhysics(),
                 child: Column(
                   children: [
                     /// White block with gallery and main info
