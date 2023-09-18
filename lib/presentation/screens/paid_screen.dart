@@ -28,7 +28,6 @@ class PaidScreen extends StatelessWidget {
             CircleAvatar(
               backgroundColor: context.theme.scaffoldBackgroundColor,
               radius: 50,
-              // TODO: use SVG
               child: Image.asset(
                 'assets/icons/party-popper.png',
                 scale: 1.5,
