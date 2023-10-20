@@ -34,7 +34,7 @@ class _RestClient implements RestClient {
     )
             .compose(
               _dio.options,
-              '/35e0d18e-2521-4f1b-a575-f0fe366f66e3',
+              '/3deafbe9-7e30-4bcb-9155-a17062aa302f',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -57,7 +57,7 @@ class _RestClient implements RestClient {
     )
             .compose(
               _dio.options,
-              '/f9a38183-6f95-43aa-853a-9c83cbb05ecd',
+              '/c1e81a8e-705b-4de8-96a8-c78467b2d3ed',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -80,7 +80,7 @@ class _RestClient implements RestClient {
     )
             .compose(
               _dio.options,
-              '/e8868481-743f-4eb2-a0d7-2bc4012275c8',
+              '/3b8f429f-6e7d-4a4e-9799-3d79222f95c5',
               queryParameters: queryParameters,
               data: _data,
             )
