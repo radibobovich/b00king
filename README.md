@@ -3,6 +3,13 @@
 ### Тестовое задание - приложение, имитирующее бронирование номера в отеле.
 #### Выполнено с опорой на Clean Architecture.
 
+<p float="left">
+  <img src="demo_pics/1.png" width="200" />
+  <img src="demo_pics/2.png" width="200" /> 
+  <img src="demo_pics/3.png" width="200" /> 
+  <img src="demo_pics/4.png" width="200" /> 
+</p>
+
 ### Стек технологий:
  - Dart, Flutter
    - BLoC (Cubit)
